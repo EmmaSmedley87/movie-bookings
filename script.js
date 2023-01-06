@@ -6,6 +6,17 @@ const movieSelect = document.getElementById("movie");
 
 let ticketPrice = +movieSelect.value;
 
+// update total and count
+function updateSelectedCount() {
+  const selectedSeats = document.querySelectorAll(".row .seat.selected");
+  const selectedSeatsCount = selectedSeats.length;
+
+  count.innerText = selectedSeatsCount;
+  total.innerText = selectedSeatsCount * ticketPrice;
+
+  console.log(selectedSeatsCount);
+}
+
 container.addEventListener("click", (e) => {
   // if statement to check if we are selecting the seat, it should not contain occupied seat
   if (
@@ -15,4 +26,6 @@ container.addEventListener("click", (e) => {
     // toggle function to turn occupied seat to blue when clicked
     e.target.classList.toggle("selected");
   }
+  // count function to update price when seat is selected
+  updateSelectedCount();
 });
