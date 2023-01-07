@@ -13,9 +13,13 @@ function updateSelectedCount() {
 
   count.innerText = selectedSeatsCount;
   total.innerText = selectedSeatsCount * ticketPrice;
-
-  console.log(selectedSeatsCount);
 }
+
+// movie select event
+movieSelect.addEventListener("change", (e) => {
+  ticketPrice = +e.target.value;
+  updateSelectedCount();
+});
 
 container.addEventListener("click", (e) => {
   // if statement to check if we are selecting the seat, it should not contain occupied seat
